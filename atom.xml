@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://expkzb.github.io/"/>
   <updated>2017-02-27T23:54:31.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://expkzb.github.io/</id>
   
   <author>
     <name>Golden Chow</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>rbenv无法设置版本</title>
-    <link href="http://yoursite.com/2017/02/28/rbenv_%E6%97%A0%E6%B3%95%E8%AE%BE%E7%BD%AE%E7%89%88%E6%9C%AC/"/>
-    <id>http://yoursite.com/2017/02/28/rbenv_无法设置版本/</id>
+    <link href="https://expkzb.github.io/2017/02/28/rbenv_%E6%97%A0%E6%B3%95%E8%AE%BE%E7%BD%AE%E7%89%88%E6%9C%AC/"/>
+    <id>https://expkzb.github.io/2017/02/28/rbenv_无法设置版本/</id>
     <published>2017-02-27T23:48:40.000Z</published>
     <updated>2017-02-27T23:54:31.000Z</updated>
     
@@ -36,8 +36,8 @@
   
   <entry>
     <title>图像批量缩放</title>
-    <link href="http://yoursite.com/2017/02/28/%E5%9B%BE%E5%83%8F%E6%89%B9%E9%87%8F%E7%BC%A9%E6%94%BE/"/>
-    <id>http://yoursite.com/2017/02/28/图像批量缩放/</id>
+    <link href="https://expkzb.github.io/2017/02/28/%E5%9B%BE%E5%83%8F%E6%89%B9%E9%87%8F%E7%BC%A9%E6%94%BE/"/>
+    <id>https://expkzb.github.io/2017/02/28/图像批量缩放/</id>
     <published>2017-02-27T23:48:40.000Z</published>
     <updated>2017-02-27T23:49:57.000Z</updated>
     
