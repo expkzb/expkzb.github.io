@@ -1,0 +1,1009 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Golden</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-02-27T23:54:31.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Golden Chow</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>rbenv无法设置版本</title>
+    <link href="http://yoursite.com/2017/02/28/rbenv_%E6%97%A0%E6%B3%95%E8%AE%BE%E7%BD%AE%E7%89%88%E6%9C%AC/"/>
+    <id>http://yoursite.com/2017/02/28/rbenv_无法设置版本/</id>
+    <published>2017-02-27T23:48:40.000Z</published>
+    <updated>2017-02-27T23:54:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;</div><div class="line">$ eval &quot;$(rbenv init -)&quot;</div></pre></td></tr></table></figure>
+<a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ export PATH=&amp;quot;$HOME/.rbenv/bin:$PATH&amp;quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ eval &amp;quot;$(rbenv init -)&amp;quot;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>图像批量缩放</title>
+    <link href="http://yoursite.com/2017/02/28/%E5%9B%BE%E5%83%8F%E6%89%B9%E9%87%8F%E7%BC%A9%E6%94%BE/"/>
+    <id>http://yoursite.com/2017/02/28/图像批量缩放/</id>
+    <published>2017-02-27T23:48:40.000Z</published>
+    <updated>2017-02-27T23:49:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="需要的软件"><a href="#需要的软件" class="headerlink" title="需要的软件"></a>需要的软件</h2><p>homebrew</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
+<p>imagemagick</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install imagemagick</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="将图片缩小到-40-，格式为-jpg"><a href="#将图片缩小到-40-，格式为-jpg" class="headerlink" title="将图片缩小到 40%，格式为 jpg"></a>将图片缩小到 40%，格式为 jpg</h3><p>切换目录至图片目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mogrify -path [输出目录] -resize 40% -format jpg *.JPG</div></pre></td></tr></table></figure>
+<h2 id="其余参数"><a href="#其余参数" class="headerlink" title="其余参数"></a>其余参数</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">Option</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-adaptive-blur geometry</td>
+<td style="text-align:left">adaptively blur pixels; decrease effect near edges</td>
+</tr>
+<tr>
+<td style="text-align:left">-adaptive-resize geometry</td>
+<td style="text-align:left">adaptively resize image with data dependent triangulation.</td>
+</tr>
+<tr>
+<td style="text-align:left">-adaptive-sharpen geometry</td>
+<td style="text-align:left">adaptively sharpen pixels; increase effect near edges</td>
+</tr>
+<tr>
+<td style="text-align:left">-adjoin</td>
+<td style="text-align:left">join images into a single multi-image file</td>
+</tr>
+<tr>
+<td style="text-align:left">-affine matrix</td>
+<td style="text-align:left">affine transform matrix</td>
+</tr>
+<tr>
+<td style="text-align:left">-alpha</td>
+<td style="text-align:left">on, activate, off, deactivate, set, opaque, copy”, transparent, extract, background, or shape the alpha channel</td>
+</tr>
+<tr>
+<td style="text-align:left">-annotate geometry text</td>
+<td style="text-align:left">annotate the image with text</td>
+</tr>
+<tr>
+<td style="text-align:left">-antialias</td>
+<td style="text-align:left">remove pixel-aliasing</td>
+</tr>
+<tr>
+<td style="text-align:left">-append</td>
+<td style="text-align:left">append an image sequence</td>
+</tr>
+<tr>
+<td style="text-align:left">-authenticate value</td>
+<td style="text-align:left">decipher image with this password</td>
+</tr>
+<tr>
+<td style="text-align:left">-auto-gamma</td>
+<td style="text-align:left">automagically adjust gamma level of image</td>
+</tr>
+<tr>
+<td style="text-align:left">-auto-level</td>
+<td style="text-align:left">automagically adjust color levels of image</td>
+</tr>
+<tr>
+<td style="text-align:left">-auto-orient</td>
+<td style="text-align:left">automagically orient image</td>
+</tr>
+<tr>
+<td style="text-align:left">-background color</td>
+<td style="text-align:left">background color</td>
+</tr>
+<tr>
+<td style="text-align:left">-bench iterations</td>
+<td style="text-align:left">measure performance</td>
+</tr>
+<tr>
+<td style="text-align:left">-bias value</td>
+<td style="text-align:left">add bias when convolving an image</td>
+</tr>
+<tr>
+<td style="text-align:left">-black-threshold value</td>
+<td style="text-align:left">force all pixels below the threshold into black</td>
+</tr>
+<tr>
+<td style="text-align:left">-blue-primary point</td>
+<td style="text-align:left">chromaticity blue primary point</td>
+</tr>
+<tr>
+<td style="text-align:left">-blue-shift factor</td>
+<td style="text-align:left">simulate a scene at nighttime in the moonlight</td>
+</tr>
+<tr>
+<td style="text-align:left">-blur geometry</td>
+<td style="text-align:left">reduce image noise and reduce detail levels</td>
+</tr>
+<tr>
+<td style="text-align:left">-border geometry</td>
+<td style="text-align:left">surround image with a border of color</td>
+</tr>
+<tr>
+<td style="text-align:left">-bordercolor color</td>
+<td style="text-align:left">border color</td>
+</tr>
+<tr>
+<td style="text-align:left">-brightness-contrast geometry</td>
+<td style="text-align:left">improve brightness / contrast of the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-canny geometry</td>
+<td style="text-align:left">use a multi-stage algorithm to detect a wide range of edges in the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-caption string</td>
+<td style="text-align:left">assign a caption to an image</td>
+</tr>
+<tr>
+<td style="text-align:left">-cdl filename</td>
+<td style="text-align:left">color correct with a color decision list</td>
+</tr>
+<tr>
+<td style="text-align:left">-channel type</td>
+<td style="text-align:left">apply option to select image channels</td>
+</tr>
+<tr>
+<td style="text-align:left">-charcoal radius</td>
+<td style="text-align:left">simulate a charcoal drawing</td>
+</tr>
+<tr>
+<td style="text-align:left">-chop geometry</td>
+<td style="text-align:left">remove pixels from the image interior</td>
+</tr>
+<tr>
+<td style="text-align:left">-clip</td>
+<td style="text-align:left">clip along the first path from the 8BIM profile</td>
+</tr>
+<tr>
+<td style="text-align:left">-clamp</td>
+<td style="text-align:left">set each pixel whose value is below zero to zero and any the pixel whose value is above the quantum range to the quantum range (e.g. 65535) otherwise the pixel value remains unchanged.</td>
+</tr>
+<tr>
+<td style="text-align:left">-clip-mask filename</td>
+<td style="text-align:left">associate clip mask with the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-clip-path id</td>
+<td style="text-align:left">clip along a named path from the 8BIM profile</td>
+</tr>
+<tr>
+<td style="text-align:left">-clut</td>
+<td style="text-align:left">apply a color lookup table to the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-complexoperator</td>
+<td style="text-align:left">perform complex mathematics on an image sequence</td>
+</tr>
+<tr>
+<td style="text-align:left">-connected-components connectivity</td>
+<td style="text-align:left">connected-components uniquely labeled, choose from 4 or 8 way connectivity</td>
+</tr>
+<tr>
+<td style="text-align:left">-contrast-stretch geometry</td>
+<td style="text-align:left">improve the contrast in an image by `stretching’ the range of intensity value</td>
+</tr>
+<tr>
+<td style="text-align:left">-coalesce</td>
+<td style="text-align:left">merge a sequence of images</td>
+</tr>
+<tr>
+<td style="text-align:left">-colorize value</td>
+<td style="text-align:left">colorize the image with the fill color</td>
+</tr>
+<tr>
+<td style="text-align:left">-color-matrix matrix</td>
+<td style="text-align:left">apply color correction to the image.</td>
+</tr>
+<tr>
+<td style="text-align:left">-colors value</td>
+<td style="text-align:left">preferred number of colors in the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-colorspace type</td>
+<td style="text-align:left">set image colorspace</td>
+</tr>
+<tr>
+<td style="text-align:left">-combine</td>
+<td style="text-align:left">combine a sequence of images</td>
+</tr>
+<tr>
+<td style="text-align:left">-comment string</td>
+<td style="text-align:left">annotate image with comment</td>
+</tr>
+<tr>
+<td style="text-align:left">-compose operator</td>
+<td style="text-align:left">set image composite operator</td>
+</tr>
+<tr>
+<td style="text-align:left">-composite</td>
+<td style="text-align:left">composite image</td>
+</tr>
+<tr>
+<td style="text-align:left">-compress type</td>
+<td style="text-align:left">image compression type</td>
+</tr>
+<tr>
+<td style="text-align:left">-contrast</td>
+<td style="text-align:left">enhance or reduce the image contrast</td>
+</tr>
+<tr>
+<td style="text-align:left">-convolve coefficients</td>
+<td style="text-align:left">apply a convolution kernel to the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-copy geometry offset</td>
+<td style="text-align:left">copy pixels from one area of an image to another</td>
+</tr>
+<tr>
+<td style="text-align:left">-crop geometry</td>
+<td style="text-align:left">crop the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-cycle amount</td>
+<td style="text-align:left">cycle the image colormap</td>
+</tr>
+<tr>
+<td style="text-align:left">-decipher filename</td>
+<td style="text-align:left">convert cipher pixels to plain</td>
+</tr>
+<tr>
+<td style="text-align:left">-debug events</td>
+<td style="text-align:left">display copious debugging information</td>
+</tr>
+<tr>
+<td style="text-align:left">-define format:option</td>
+<td style="text-align:left">define one or more image format options</td>
+</tr>
+<tr>
+<td style="text-align:left">-deconstruct</td>
+<td style="text-align:left">break down an image sequence into constituent parts</td>
+</tr>
+<tr>
+<td style="text-align:left">-delay value</td>
+<td style="text-align:left">display the next image after pausing</td>
+</tr>
+<tr>
+<td style="text-align:left">-delete index</td>
+<td style="text-align:left">delete the image from the image sequence</td>
+</tr>
+<tr>
+<td style="text-align:left">-density geometry</td>
+<td style="text-align:left">horizontal and vertical density of the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-depth value</td>
+<td style="text-align:left">image depth</td>
+</tr>
+<tr>
+<td style="text-align:left">-despeckle</td>
+<td style="text-align:left">reduce the speckles within an image</td>
+</tr>
+<tr>
+<td style="text-align:left">-direction type</td>
+<td style="text-align:left">render text right-to-left or left-to-right</td>
+</tr>
+<tr>
+<td style="text-align:left">-display server</td>
+<td style="text-align:left">get image or font from this X server</td>
+</tr>
+<tr>
+<td style="text-align:left">-dispose method</td>
+<td style="text-align:left">layer disposal method</td>
+</tr>
+<tr>
+<td style="text-align:left">-distort type coefficients</td>
+<td style="text-align:left">distort image</td>
+</tr>
+<tr>
+<td style="text-align:left">-distribute-cache port</td>
+<td style="text-align:left">launch a pixel cache server</td>
+</tr>
+<tr>
+<td style="text-align:left">-dither method</td>
+<td style="text-align:left">apply error diffusion to image</td>
+</tr>
+<tr>
+<td style="text-align:left">-draw string</td>
+<td style="text-align:left">annotate the image with a graphic primitive</td>
+</tr>
+<tr>
+<td style="text-align:left">-duplicate count,indexes</td>
+<td style="text-align:left">duplicate an image one or more times</td>
+</tr>
+<tr>
+<td style="text-align:left">-edge radius</td>
+<td style="text-align:left">apply a filter to detect edges in the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-emboss radius</td>
+<td style="text-align:left">emboss an image</td>
+</tr>
+<tr>
+<td style="text-align:left">-encipher filename</td>
+<td style="text-align:left">convert plain pixels to cipher pixels</td>
+</tr>
+<tr>
+<td style="text-align:left">-encoding type</td>
+<td style="text-align:left">text encoding type</td>
+</tr>
+<tr>
+<td style="text-align:left">-endian type</td>
+<td style="text-align:left">endianness (MSB or LSB) of the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-enhance</td>
+<td style="text-align:left">apply a digital filter to enhance a noisy image</td>
+</tr>
+<tr>
+<td style="text-align:left">-equalize</td>
+<td style="text-align:left">perform histogram equalization to an image</td>
+</tr>
+<tr>
+<td style="text-align:left">-evaluate operator value</td>
+<td style="text-align:left">evaluate an arithmetic, relational, or logical expression</td>
+</tr>
+<tr>
+<td style="text-align:left">-evaluate-sequence operator</td>
+<td style="text-align:left">evaluate an arithmetic, relational, or logical expression for an image sequence</td>
+</tr>
+<tr>
+<td style="text-align:left">-extent geometry</td>
+<td style="text-align:left">set the image size</td>
+</tr>
+<tr>
+<td style="text-align:left">-extract geometry</td>
+<td style="text-align:left">extract area from image</td>
+</tr>
+<tr>
+<td style="text-align:left">-family name</td>
+<td style="text-align:left">render text with this font family</td>
+</tr>
+<tr>
+<td style="text-align:left">-features distance</td>
+<td style="text-align:left">analyze image features (e.g. contract, correlations, etc.).</td>
+</tr>
+<tr>
+<td style="text-align:left">-fft</td>
+<td style="text-align:left">implements the discrete Fourier transform (DFT)</td>
+</tr>
+<tr>
+<td style="text-align:left">-fill color</td>
+<td style="text-align:left">color to use when filling a graphic primitive</td>
+</tr>
+<tr>
+<td style="text-align:left">-filter type</td>
+<td style="text-align:left">use this filter when resizing an image</td>
+</tr>
+<tr>
+<td style="text-align:left">-flatten</td>
+<td style="text-align:left">flatten a sequence of images</td>
+</tr>
+<tr>
+<td style="text-align:left">-flip</td>
+<td style="text-align:left">flip image in the vertical direction</td>
+</tr>
+<tr>
+<td style="text-align:left">-floodfill geometry color</td>
+<td style="text-align:left">floodfill the image with color</td>
+</tr>
+<tr>
+<td style="text-align:left">-flop</td>
+<td style="text-align:left">flop image in the horizontal direction</td>
+</tr>
+<tr>
+<td style="text-align:left">-font name</td>
+<td style="text-align:left">render text with this font</td>
+</tr>
+<tr>
+<td style="text-align:left">-format type</td>
+<td style="text-align:left">output formatted image characteristics</td>
+</tr>
+<tr>
+<td style="text-align:left">-frame geometry</td>
+<td style="text-align:left">surround image with an ornamental border</td>
+</tr>
+<tr>
+<td style="text-align:left">-function name</td>
+<td style="text-align:left">apply a function to the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-fuzz distance</td>
+<td style="text-align:left">colors within this distance are considered equal</td>
+</tr>
+<tr>
+<td style="text-align:left">-fx expression</td>
+<td style="text-align:left">apply mathematical expression to an image channel(s)</td>
+</tr>
+<tr>
+<td style="text-align:left">-gamma value</td>
+<td style="text-align:left">level of gamma correction</td>
+</tr>
+<tr>
+<td style="text-align:left">-gaussian-blur geometry</td>
+<td style="text-align:left">reduce image noise and reduce detail levels</td>
+</tr>
+<tr>
+<td style="text-align:left">-geometry geometry</td>
+<td style="text-align:left">preferred size or location of the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-gravity type</td>
+<td style="text-align:left">horizontal and vertical text placement</td>
+</tr>
+<tr>
+<td style="text-align:left">-grayscale method</td>
+<td style="text-align:left">convert image to grayscale</td>
+</tr>
+<tr>
+<td style="text-align:left">-green-primary point</td>
+<td style="text-align:left">chromaticity green primary point</td>
+</tr>
+<tr>
+<td style="text-align:left">-help</td>
+<td style="text-align:left">print program options</td>
+</tr>
+<tr>
+<td style="text-align:left">-hough-lines geometry</td>
+<td style="text-align:left">identify lines in the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-identify</td>
+<td style="text-align:left">identify the format and characteristics of the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-ifft</td>
+<td style="text-align:left">implements the inverse discrete Fourier transform (DFT)</td>
+</tr>
+<tr>
+<td style="text-align:left">-implode amount</td>
+<td style="text-align:left">implode image pixels about the center</td>
+</tr>
+<tr>
+<td style="text-align:left">-insert index</td>
+<td style="text-align:left">insert last image into the image sequence</td>
+</tr>
+<tr>
+<td style="text-align:left">-intensity method</td>
+<td style="text-align:left">method to generate an intensity value from a pixel</td>
+</tr>
+<tr>
+<td style="text-align:left">-intent type</td>
+<td style="text-align:left">type of rendering intent when managing the image color</td>
+</tr>
+<tr>
+<td style="text-align:left">-interlace type</td>
+<td style="text-align:left">type of image interlacing scheme</td>
+</tr>
+<tr>
+<td style="text-align:left">-interline-spacing value</td>
+<td style="text-align:left">the space between two text lines</td>
+</tr>
+<tr>
+<td style="text-align:left">-interpolate method</td>
+<td style="text-align:left">pixel color interpolation method</td>
+</tr>
+<tr>
+<td style="text-align:left">-interword-spacing value</td>
+<td style="text-align:left">the space between two words</td>
+</tr>
+<tr>
+<td style="text-align:left">-kerning value</td>
+<td style="text-align:left">the space between two characters</td>
+</tr>
+<tr>
+<td style="text-align:left">-kuwahara geometry</td>
+<td style="text-align:left">edge preserving noise reduction filter</td>
+</tr>
+<tr>
+<td style="text-align:left">-label string</td>
+<td style="text-align:left">assign a label to an image</td>
+</tr>
+<tr>
+<td style="text-align:left">-lat geometry</td>
+<td style="text-align:left">local adaptive thresholding</td>
+</tr>
+<tr>
+<td style="text-align:left">-layers method</td>
+<td style="text-align:left">optimize or compare image layers</td>
+</tr>
+<tr>
+<td style="text-align:left">-level value</td>
+<td style="text-align:left">adjust the level of image contrast</td>
+</tr>
+<tr>
+<td style="text-align:left">-limit type value</td>
+<td style="text-align:left">pixel cache resource limit</td>
+</tr>
+<tr>
+<td style="text-align:left">-linear-stretch geometry</td>
+<td style="text-align:left">linear with saturation histogram stretch</td>
+</tr>
+<tr>
+<td style="text-align:left">-liquid-rescale geometry</td>
+<td style="text-align:left">rescale image with seam-carving</td>
+</tr>
+<tr>
+<td style="text-align:left">-log format</td>
+<td style="text-align:left">format of debugging information</td>
+</tr>
+<tr>
+<td style="text-align:left">-loop iterations</td>
+<td style="text-align:left">add Netscape loop extension to your GIF animation</td>
+</tr>
+<tr>
+<td style="text-align:left">-mattecolor color</td>
+<td style="text-align:left">frame color</td>
+</tr>
+<tr>
+<td style="text-align:left">-median radius</td>
+<td style="text-align:left">apply a median filter to the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-mean-shift geometry</td>
+<td style="text-align:left">delineate arbitrarily shaped clusters in the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-metric type</td>
+<td style="text-align:left">measure differences between images with this metric</td>
+</tr>
+<tr>
+<td style="text-align:left">-mode radius</td>
+<td style="text-align:left">make each pixel the ‘predominant color’ of the neighborhood</td>
+</tr>
+<tr>
+<td style="text-align:left">-modulate value</td>
+<td style="text-align:left">vary the brightness, saturation, and hue</td>
+</tr>
+<tr>
+<td style="text-align:left">-monitor</td>
+<td style="text-align:left">monitor progress</td>
+</tr>
+<tr>
+<td style="text-align:left">-monochrome</td>
+<td style="text-align:left">transform image to black and white</td>
+</tr>
+<tr>
+<td style="text-align:left">-morph value</td>
+<td style="text-align:left">morph an image sequence</td>
+</tr>
+<tr>
+<td style="text-align:left">-morphology method kernel</td>
+<td style="text-align:left">apply a morphology method to the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-motion-blur geometry</td>
+<td style="text-align:left">simulate motion blur</td>
+</tr>
+<tr>
+<td style="text-align:left">-negate</td>
+<td style="text-align:left">replace each pixel with its complementary color</td>
+</tr>
+<tr>
+<td style="text-align:left">-noise radius</td>
+<td style="text-align:left">add or reduce noise in an image</td>
+</tr>
+<tr>
+<td style="text-align:left">-normalize</td>
+<td style="text-align:left">transform image to span the full range of colors</td>
+</tr>
+<tr>
+<td style="text-align:left">-opaque color</td>
+<td style="text-align:left">change this color to the fill color</td>
+</tr>
+<tr>
+<td style="text-align:left">-ordered-dither NxN</td>
+<td style="text-align:left">ordered dither the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-orient type</td>
+<td style="text-align:left">image orientation</td>
+</tr>
+<tr>
+<td style="text-align:left">-page geometry</td>
+<td style="text-align:left">size and location of an image canvas (setting)</td>
+</tr>
+<tr>
+<td style="text-align:left">-paint radius</td>
+<td style="text-align:left">simulate an oil painting</td>
+</tr>
+<tr>
+<td style="text-align:left">-perceptible</td>
+<td style="text-align:left">set each pixel whose value is less than</td>
+<td>epsilon</td>
+<td>to -epsilon or epsilon (whichever is closer) otherwise the pixel value remains unchanged.</td>
+</tr>
+<tr>
+<td style="text-align:left">-ping</td>
+<td style="text-align:left">efficiently determine image attributes</td>
+</tr>
+<tr>
+<td style="text-align:left">-pointsize value</td>
+<td style="text-align:left">font point size</td>
+</tr>
+<tr>
+<td style="text-align:left">-polaroid angle</td>
+<td style="text-align:left">simulate a Polaroid picture</td>
+</tr>
+<tr>
+<td style="text-align:left">-poly terms</td>
+<td style="text-align:left">build a polynomial from the image sequence and the corresponding terms (coefficients and degree pairs).</td>
+</tr>
+<tr>
+<td style="text-align:left">-posterize levels</td>
+<td style="text-align:left">reduce the image to a limited number of color levels</td>
+</tr>
+<tr>
+<td style="text-align:left">-precision value</td>
+<td style="text-align:left">set the maximum number of significant digits to be printed</td>
+</tr>
+<tr>
+<td style="text-align:left">-preview type</td>
+<td style="text-align:left">image preview type</td>
+</tr>
+<tr>
+<td style="text-align:left">-print string</td>
+<td style="text-align:left">interpret string and print to console</td>
+</tr>
+<tr>
+<td style="text-align:left">-process image-filter</td>
+<td style="text-align:left">process the image with a custom image filter</td>
+</tr>
+<tr>
+<td style="text-align:left">-profile filename</td>
+<td style="text-align:left">add, delete, or apply an image profile</td>
+</tr>
+<tr>
+<td style="text-align:left">-quality value</td>
+<td style="text-align:left">JPEG/MIFF/PNG compression level</td>
+</tr>
+<tr>
+<td style="text-align:left">-quantize colorspace</td>
+<td style="text-align:left">reduce image colors in this colorspace</td>
+</tr>
+<tr>
+<td style="text-align:left">-quiet</td>
+<td style="text-align:left">suppress all warning messages</td>
+</tr>
+<tr>
+<td style="text-align:left">-radial-blur angle</td>
+<td style="text-align:left">radial blur the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-raise value</td>
+<td style="text-align:left">lighten/darken image edges to create a 3-D effect</td>
+</tr>
+<tr>
+<td style="text-align:left">-random-threshold low,high</td>
+<td style="text-align:left">random threshold the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-read-mask filename</td>
+<td style="text-align:left">associate a read mask with the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-red-primary point</td>
+<td style="text-align:left">chromaticity red primary point</td>
+</tr>
+<tr>
+<td style="text-align:left">-regard-warnings</td>
+<td style="text-align:left">pay attention to warning messages.</td>
+</tr>
+<tr>
+<td style="text-align:left">-region geometry</td>
+<td style="text-align:left">apply options to a portion of the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-remap filename</td>
+<td style="text-align:left">transform image colors to match this set of colors</td>
+</tr>
+<tr>
+<td style="text-align:left">-render</td>
+<td style="text-align:left">render vector graphics</td>
+</tr>
+<tr>
+<td style="text-align:left">-repage geometry</td>
+<td style="text-align:left">size and location of an image canvas</td>
+</tr>
+<tr>
+<td style="text-align:left">-resample geometry</td>
+<td style="text-align:left">change the resolution of an image</td>
+</tr>
+<tr>
+<td style="text-align:left">-resize geometry</td>
+<td style="text-align:left">resize the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-respect-parentheses</td>
+<td style="text-align:left">settings remain in effect until parenthesis boundary.</td>
+</tr>
+<tr>
+<td style="text-align:left">-roll geometry</td>
+<td style="text-align:left">roll an image vertically or horizontally</td>
+</tr>
+<tr>
+<td style="text-align:left">-rotate degrees</td>
+<td style="text-align:left">apply Paeth rotation to the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-sample geometry</td>
+<td style="text-align:left">scale image with pixel sampling</td>
+</tr>
+<tr>
+<td style="text-align:left">-sampling-factor geometry</td>
+<td style="text-align:left">horizontal and vertical sampling factor</td>
+</tr>
+<tr>
+<td style="text-align:left">-scale geometry</td>
+<td style="text-align:left">scale the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-scene value</td>
+<td style="text-align:left">image scene number</td>
+</tr>
+<tr>
+<td style="text-align:left">-seed value</td>
+<td style="text-align:left">seed a new sequence of pseudo-random numbers</td>
+</tr>
+<tr>
+<td style="text-align:left">-segment values</td>
+<td style="text-align:left">segment an image</td>
+</tr>
+<tr>
+<td style="text-align:left">-selective-blur geometry</td>
+<td style="text-align:left">selectively blur pixels within a contrast threshold</td>
+</tr>
+<tr>
+<td style="text-align:left">-separate</td>
+<td style="text-align:left">separate an image channel into a grayscale image</td>
+</tr>
+<tr>
+<td style="text-align:left">-sepia-tone threshold</td>
+<td style="text-align:left">simulate a sepia-toned photo</td>
+</tr>
+<tr>
+<td style="text-align:left">-set attribute value</td>
+<td style="text-align:left">set an image attribute</td>
+</tr>
+<tr>
+<td style="text-align:left">-shade degrees</td>
+<td style="text-align:left">shade the image using a distant light source</td>
+</tr>
+<tr>
+<td style="text-align:left">-shadow geometry</td>
+<td style="text-align:left">simulate an image shadow</td>
+</tr>
+<tr>
+<td style="text-align:left">-sharpen geometry</td>
+<td style="text-align:left">sharpen the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-shave geometry</td>
+<td style="text-align:left">shave pixels from the image edges</td>
+</tr>
+<tr>
+<td style="text-align:left">-shear geometry</td>
+<td style="text-align:left">slide one edge of the image along the X or Y axis</td>
+</tr>
+<tr>
+<td style="text-align:left">-sigmoidal-contrast geometry</td>
+<td style="text-align:left">increase the contrast without saturating highlights or shadows</td>
+</tr>
+<tr>
+<td style="text-align:left">-size geometry</td>
+<td style="text-align:left">width and height of image</td>
+</tr>
+<tr>
+<td style="text-align:left">-sketch geometry</td>
+<td style="text-align:left">simulate a pencil sketch</td>
+</tr>
+<tr>
+<td style="text-align:left">-smush offset</td>
+<td style="text-align:left">smush an image sequence together</td>
+</tr>
+<tr>
+<td style="text-align:left">-solarize threshold</td>
+<td style="text-align:left">negate all pixels above the threshold level</td>
+</tr>
+<tr>
+<td style="text-align:left">-splice geometry</td>
+<td style="text-align:left">splice the background color into the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-spread radius</td>
+<td style="text-align:left">displace image pixels by a random amount</td>
+</tr>
+<tr>
+<td style="text-align:left">-statistic type geometry</td>
+<td style="text-align:left">replace each pixel with corresponding statistic from the neighborhood</td>
+</tr>
+<tr>
+<td style="text-align:left">-strip</td>
+<td style="text-align:left">strip image of all profiles and comments</td>
+</tr>
+<tr>
+<td style="text-align:left">-stroke color</td>
+<td style="text-align:left">graphic primitive stroke color</td>
+</tr>
+<tr>
+<td style="text-align:left">-strokewidth value</td>
+<td style="text-align:left">graphic primitive stroke width</td>
+</tr>
+<tr>
+<td style="text-align:left">-stretch type</td>
+<td style="text-align:left">render text with this font stretch</td>
+</tr>
+<tr>
+<td style="text-align:left">-style type</td>
+<td style="text-align:left">render text with this font style</td>
+</tr>
+<tr>
+<td style="text-align:left">-swap indexes</td>
+<td style="text-align:left">swap two images in the image sequence</td>
+</tr>
+<tr>
+<td style="text-align:left">-swirl degrees</td>
+<td style="text-align:left">swirl image pixels about the center</td>
+</tr>
+<tr>
+<td style="text-align:left">-synchronize</td>
+<td style="text-align:left">synchronize image to storage device</td>
+</tr>
+<tr>
+<td style="text-align:left">-texture filename</td>
+<td style="text-align:left">name of texture to tile onto the image background</td>
+</tr>
+<tr>
+<td style="text-align:left">-threshold value</td>
+<td style="text-align:left">threshold the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-thumbnail geometry</td>
+<td style="text-align:left">create a thumbnail of the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-tile filename</td>
+<td style="text-align:left">tile image when filling a graphic primitive</td>
+</tr>
+<tr>
+<td style="text-align:left">-tile-offset geometry</td>
+<td style="text-align:left">set the image tile offset</td>
+</tr>
+<tr>
+<td style="text-align:left">-tint value</td>
+<td style="text-align:left">tint the image with the fill color</td>
+</tr>
+<tr>
+<td style="text-align:left">-transform</td>
+<td style="text-align:left">affine transform image</td>
+</tr>
+<tr>
+<td style="text-align:left">-transparent color</td>
+<td style="text-align:left">make this color transparent within the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-transparent-color color</td>
+<td style="text-align:left">transparent color</td>
+</tr>
+<tr>
+<td style="text-align:left">-transpose</td>
+<td style="text-align:left">flip image in the vertical direction and rotate 90 degrees</td>
+</tr>
+<tr>
+<td style="text-align:left">-transverse</td>
+<td style="text-align:left">flop image in the horizontal direction and rotate 270 degrees</td>
+</tr>
+<tr>
+<td style="text-align:left">-treedepth value</td>
+<td style="text-align:left">color tree depth</td>
+</tr>
+<tr>
+<td style="text-align:left">-trim</td>
+<td style="text-align:left">trim image edges</td>
+</tr>
+<tr>
+<td style="text-align:left">-type type</td>
+<td style="text-align:left">image type</td>
+</tr>
+<tr>
+<td style="text-align:left">-undercolor color</td>
+<td style="text-align:left">annotation bounding box color</td>
+</tr>
+<tr>
+<td style="text-align:left">-unique-colors</td>
+<td style="text-align:left">discard all but one of any pixel color.</td>
+</tr>
+<tr>
+<td style="text-align:left">-units type</td>
+<td style="text-align:left">the units of image resolution</td>
+</tr>
+<tr>
+<td style="text-align:left">-unsharp geometry</td>
+<td style="text-align:left">sharpen the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-verbose</td>
+<td style="text-align:left">print detailed information about the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-version</td>
+<td style="text-align:left">print version information</td>
+</tr>
+<tr>
+<td style="text-align:left">-view</td>
+<td style="text-align:left">FlashPix viewing transforms</td>
+</tr>
+<tr>
+<td style="text-align:left">-vignette geometry</td>
+<td style="text-align:left">soften the edges of the image in vignette style</td>
+</tr>
+<tr>
+<td style="text-align:left">-virtual-pixel method</td>
+<td style="text-align:left">access method for pixels outside the boundaries of the image</td>
+</tr>
+<tr>
+<td style="text-align:left">-wave geometry</td>
+<td style="text-align:left">alter an image along a sine wave</td>
+</tr>
+<tr>
+<td style="text-align:left">-wavelet-denoise threshold</td>
+<td style="text-align:left">removes noise from the image using a wavelet transform</td>
+</tr>
+<tr>
+<td style="text-align:left">-weight type</td>
+<td style="text-align:left">render text with this font weight</td>
+</tr>
+<tr>
+<td style="text-align:left">-white-point point</td>
+<td style="text-align:left">chromaticity white point</td>
+</tr>
+<tr>
+<td style="text-align:left">-white-threshold value</td>
+<td style="text-align:left">force all pixels above the threshold into white</td>
+</tr>
+<tr>
+<td style="text-align:left">-write filename</td>
+<td style="text-align:left">write images to this file</td>
+</tr>
+<tr>
+<td style="text-align:left">-write-mask filename</td>
+<td style="text-align:left">associate a write mask with the imageg</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;需要的软件&quot;&gt;&lt;a href=&quot;#需要的软件&quot; class=&quot;headerlink&quot; title=&quot;需要的软件&quot;&gt;&lt;/a&gt;需要的软件&lt;/h2&gt;&lt;p&gt;homebrew&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;imagemagick&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ brew install imagemagick&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
