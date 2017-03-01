@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="baidu-site-verification" content="PSnC67BfjM"><meta name="X-UA-Compatible" content="IE=edge"><title> iOS内购功能调研 · Golden</title><meta name="description" content="iOS内购功能调研 - Golden Chow"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://expkzb.github.io/atom.xml" title="Golden"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/expkzb" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/expkzb" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">iOS内购功能调研</h1><div class="post-info">Mar 1, 2017</div><div class="post-content"><p>术语 <code>in-app purchase</code> 或 <code>IAP</code> </p>
+<h2 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h2><p>选自 <a href="http://www.jianshu.com/p/298a01961ba7" target="_blank" rel="external">iOS快速上手应用内购(IAP)附Demo - 简书</a></p>
+<ol>
+<li>应用发送请求到服务器，获取所有的可用Products Id集合,(当然你也可以把Products Id硬编码到程序中,这样会导致不能动态配置商品).</li>
+<li>根据服务器返回的 Products Id 以及信息设置购买界面UI.(这里跟图一有些不同)</li>
+<li>用户点击购买商品.</li>
+<li>客户端根据相应的 Product Id 向 App Store 请求产品信息，并发起购买 payment.(使用StoreKit)</li>
+<li>App Store处理该 payment，并返回完成的 transaction</li>
+<li>客户端从 transaction 中获取 receipt 凭证数据，并将其发送给服务器，等待返回.</li>
+<li>服务器验证 receipt 凭证数据是否使用过，保存然后发给App Store验证是否合法</li>
+<li>服务器得到 App Store 验证结果，返回给客户端相应购买成功或失败信息</li>
+<li>客户端提示用户购买结果以及处理相应UI.</li>
+</ol>
+<h2 id="另一个流程"><a href="#另一个流程" class="headerlink" title="另一个流程"></a>另一个流程</h2><p>[image:EF7E3831-F2FF-439C-8A29-F62442AB5DE4-2153-000019FF19A7BDF5/6598149487136756941.jpg.png]</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>需要提前在 iTunes Connect 中创建项目（entry)</li>
+<li>只能为虚拟物品提供内购服务</li>
+<li>测试 IAP 需要创建“沙盒用户”(Sandbox User)</li>
+</ul>
+<h2 id="购买项目种类"><a href="#购买项目种类" class="headerlink" title="购买项目种类"></a>购买项目种类</h2><ul>
+<li>Consumable 消费品，可重复购买</li>
+<li>Non-Consumable 购买一次，永久有效</li>
+<li>Non-Renewing Subscription 有有效期的订阅</li>
+<li>Auto-Renewing Subscription 可重复的订阅</li>
+</ul>
+<h3 id="物品属性"><a href="#物品属性" class="headerlink" title="物品属性"></a>物品属性</h3><ul>
+<li>Reference Name 在 iTunes Connect 中显示的物品昵称，该昵称不会出现在 app 中。</li>
+<li>Product ID 一个唯一的字符串，用来区别 IAP 的物品。通常是由 Bundle ID + name 来定义。</li>
+<li>Cleared for Sale 开启／关闭 该物品的购买服务</li>
+<li>Price Tier 定价</li>
+<li>Display Name 展示名称</li>
+<li>Description 物品描述</li>
+</ul>
+<h2 id="创建沙盒用户"><a href="#创建沙盒用户" class="headerlink" title="创建沙盒用户"></a>创建沙盒用户</h2><h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><p>iTunes Connect -&gt; Users and Roles -&gt; Sandbox Testers -&gt; “+” </p>
+<h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>所创建的邮箱，不能与 Apple ID 相关联</li>
+<li>如果要测试 Non-Consumable 类型的购买，每次都需要创建一个新的沙盒用户，否则下次购买时，会被判定为恢复购买(restoring)</li>
+<li>测试 Consumable 时，需要重新安装应用</li>
+<li>The first time you submit your app for review, you also need to submit in-app products to be reviewed at the same time. After the first submission, you can submit updates to your app and products for review independently of each other. </li>
+</ul>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
+<li>避免重复注册邮箱：如果有gmail，可以使用“别名”(alias)来注册。比如，原有地址 abc@gmail.com，可以写成 abc+iap1@gmail.com。</li>
+</ul>
+<h2 id="配置Xcode"><a href="#配置Xcode" class="headerlink" title="配置Xcode"></a>配置Xcode</h2><ol>
+<li>确认 Team 及 Bundle ID 和线上配置一样</li>
+<li>在 Capabilities 中，打开 In-App Purchase</li>
+</ol>
+<h2 id="Show-me-the-code"><a href="#Show-me-the-code" class="headerlink" title="Show me the code"></a>Show me the code</h2><h3 id="列出商品列表"><a href="#列出商品列表" class="headerlink" title="列出商品列表"></a>列出商品列表</h3><blockquote>
+<p>注意：你无法从苹果服务器获得商品列表，必须自己维护商品标识列表（product identifiers）</p>
+</blockquote>
+<p>通过商品的标识(product identifier)来获取商品信息（描述、标题、价格等）  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">- (void)fetchProducts &#123;</div><div class="line">	SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithArray:productIdentifiers]];</div><div class="line">	// Keep a strong reference to the request.</div><div class="line">	self.request = productsRequest;</div><div class="line">	productsRequest.delegate = self;</div><div class="line">	[productsRequest start];</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - Products Request Delegate</div><div class="line"></div><div class="line">- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response</div><div class="line">&#123;</div><div class="line">    //保留商品信息</div><div class="line">    self.products = response.products;</div><div class="line">    //已失效的商品</div><div class="line">    for (NSString *invalidIdentifier in response.invalidProductIdentifiers) &#123;</div><div class="line">        NSLog(@&quot;无效的产品标识：%@&quot;, invalidIdentifier);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="查找已购买的商品"><a href="#查找已购买的商品" class="headerlink" title="查找已购买的商品"></a>查找已购买的商品</h3><p>iOS 7.0+可以使用 <code>SKReceiptRefreshRequest</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">request = [[SKReceiptRefreshRequest alloc] init];</div><div class="line">request.delegate = self;</div><div class="line">[request start];</div></pre></td></tr></table></figure>
+<h3 id="购买商品"><a href="#购买商品" class="headerlink" title="购买商品"></a>购买商品</h3><p>创建一个购买请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">- (SKPayment *)makeAPayment:(SKProduct *)product &#123;</div><div class="line">    SKMutablePayment *payment = [SKMutablePayment paymentWithProduct:product];</div><div class="line">    payment.quantity = 2;</div><div class="line">    ///提供加密后的平台用户账号名，用于给苹果检查可疑的支付行为</div><div class="line">    payment.applicationUsername = [self hashedValueForAccountName:@&quot;UserID&quot;];</div><div class="line">    return payment;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//官方的hash方法实例，用于加密用户在app平台上的账号名</div><div class="line">- (NSString *)hashedValueForAccountName:(NSString*)userAccountName</div><div class="line">&#123;</div><div class="line">    const int HASH_SIZE = 32;</div><div class="line">    unsigned char hashedChars[HASH_SIZE];</div><div class="line">    const char *accountName = [userAccountName UTF8String];</div><div class="line">    size_t accountNameLen = strlen(accountName);</div><div class="line">    </div><div class="line">    // Confirm that the length of the user name is small enough</div><div class="line">    // to be recast when calling the hash function.</div><div class="line">    if (accountNameLen &gt; UINT32_MAX) &#123;</div><div class="line">        NSLog(@&quot;Account name too long to hash: %@&quot;, userAccountName);</div><div class="line">        return nil;</div><div class="line">    &#125;</div><div class="line">    CC_SHA256(accountName, (CC_LONG)accountNameLen, hashedChars);</div><div class="line">    </div><div class="line">    // Convert the array of bytes into a string showing its hex representation.</div><div class="line">    NSMutableString *userAccountHash = [[NSMutableString alloc] init];</div><div class="line">    for (int i = 0; i &lt; HASH_SIZE; i++) &#123;</div><div class="line">        // Add a dash every four bytes, for readability.</div><div class="line">        if (i != 0 &amp;&amp; i%4 == 0) &#123;</div><div class="line">            [userAccountHash appendString:@&quot;-&quot;];</div><div class="line">        &#125;</div><div class="line">        [userAccountHash appendFormat:@&quot;%02x&quot;, hashedChars[i]];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return userAccountHash;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//将上述方法返回的payment放入支付队列</div><div class="line">[[SKPaymentQueue defaultQueue] addPayment:payment];</div></pre></td></tr></table></figure>
+<p>等待苹果返回支付结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</div><div class="line">&#123;</div><div class="line">    //增加一个支付流程观察者</div><div class="line">    [[SKPaymentQueue defaultQueue] addTransactionObserver:observer];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//观察者实现该方法</div><div class="line">- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions</div><div class="line">&#123;</div><div class="line">    for (SKPaymentTransaction *transaction in transactions) &#123;</div><div class="line">        switch (transaction.transactionState) &#123;</div><div class="line">            // Call the appropriate custom method for the transaction state.</div><div class="line">            case SKPaymentTransactionStatePurchasing:</div><div class="line">                [self showTransactionAsInProgress:transaction deferred:NO];</div><div class="line">                break;</div><div class="line">            case SKPaymentTransactionStateDeferred:</div><div class="line">                [self showTransactionAsInProgress:transaction deferred:YES];</div><div class="line">                break;</div><div class="line">            case SKPaymentTransactionStateFailed:</div><div class="line">                [self failedTransaction:transaction];</div><div class="line">                break;</div><div class="line">            case SKPaymentTransactionStatePurchased:</div><div class="line">                [self completeTransaction:transaction];</div><div class="line">                break;</div><div class="line">            case SKPaymentTransactionStateRestored:</div><div class="line">                [self restoreTransaction:transaction];</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                // For debugging</div><div class="line">                NSLog(@&quot;Unexpected transaction state %@&quot;, @(transaction.transactionState));</div><div class="line">                break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><p>客户端需考虑将 <code>receipt</code> 凭证数据本地持久化，并加入请求失败重发机制</p>
+<h3 id="通过沙盒用户购买商品"><a href="#通过沙盒用户购买商品" class="headerlink" title="通过沙盒用户购买商品"></a>通过沙盒用户购买商品</h3><p>使用沙盒用户购买商品时，需要退出当前登录的 iTunes &amp; App Store 账号</p>
+<h3 id="服务器端验证-receipt"><a href="#服务器端验证-receipt" class="headerlink" title="服务器端验证 receipt"></a>服务器端验证 <code>receipt</code></h3><ol>
+<li>接收ios端发过来的购买凭证。</li>
+<li>判断凭证是否已经存在或验证过，然后存储该凭证。</li>
+<li>将该凭证发送到苹果的服务器验证，并将验证结果返回给客户端。</li>
+<li>如果需要，修改用户相应的会员权限。</li>
+</ol>
+<h4 id="如何验证"><a href="#如何验证" class="headerlink" title="如何验证"></a>如何验证</h4><p>将该购买凭证用Base64编码，然后POST给苹果的验证服务器，苹果将验证结果以JSON形式返回。</p>
+<h5 id="验证地址"><a href="#验证地址" class="headerlink" title="验证地址"></a>验证地址</h5><blockquote>
+<p>Always verify your receipt first with the production URL; proceed to verify with the sandbox URL if you receive a 21007 status code. Following this approach ensures that you do not have to switch between URLs while your application is being tested or reviewed in the sandbox or is live in the App Store.</p>
+</blockquote>
+<p>虽然在审核时，我们会将地址切换到生产环境。但在验证支付收据环节上，苹果的审核人员使用的是 <code>sandbox</code> 环境。所以，在进行验证时，都需要遵循以下步骤：</p>
+<ol>
+<li>通过生产环境URL验证</li>
+<li>判断返回的状态码，若为 21007 ，则通过测试环境进行验证</li>
+</ol>
+<ul>
+<li>测试：<a href="https://sandbox.itunes.apple.com/verifyReceipt" target="_blank" rel="external">https://sandbox.itunes.apple.com/verifyReceipt</a></li>
+<li>正式：<a href="https://buy.itunes.apple.com/verifyReceipt" target="_blank" rel="external">https://buy.itunes.apple.com/verifyReceipt</a></li>
+</ul>
+<blockquote>
+<p>check receipt but recommend to use in server side instead of using this function</p>
+</blockquote>
+<p>在一段源码中，我看到了这样的提示。建议将验证收据的过程放到服务器端进行。我觉得很有道理，因为我们无法保证用户的网络环境。 </p>
+</div></article></div></main><footer><div class="paginator"><a href="/2017/03/01/使用mermaid来生成流程图/" class="next">NEXT</a></div><div class="copyright"><p>© 2017 <a href="https://expkzb.github.io">Golden Chow</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-92800496-1",'auto');ga('send','pageview');</script></body></html>
