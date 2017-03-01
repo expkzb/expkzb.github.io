@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://expkzb.github.io/"/>
-  <updated>2017-03-01T14:52:40.000Z</updated>
+  <updated>2017-03-01T14:54:28.000Z</updated>
   <id>https://expkzb.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://expkzb.github.io/2017/03/01/iOS%E5%86%85%E8%B4%AD%E5%8A%9F%E8%83%BD%E8%B0%83%E7%A0%94/"/>
     <id>https://expkzb.github.io/2017/03/01/iOS内购功能调研/</id>
     <published>2017-03-01T14:51:56.000Z</published>
-    <updated>2017-03-01T14:52:40.000Z</updated>
+    <updated>2017-03-01T14:54:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>术语 <code>in-app purchase</code> 或 <code>IAP</code> </p>
 <h2 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h2><p>选自 <a href="http://www.jianshu.com/p/298a01961ba7" target="_blank" rel="external">iOS快速上手应用内购(IAP)附Demo - 简书</a></p>
@@ -35,6 +35,7 @@
 <li>服务器得到 App Store 验证结果，返回给客户端相应购买成功或失败信息</li>
 <li>客户端提示用户购买结果以及处理相应UI.</li>
 </ol>
+<a id="more"></a>
 <h2 id="另一个流程"><a href="#另一个流程" class="headerlink" title="另一个流程"></a>另一个流程</h2><p>[image:EF7E3831-F2FF-439C-8A29-F62442AB5DE4-2153-000019FF19A7BDF5/6598149487136756941.jpg.png]</p>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
 <li>需要提前在 iTunes Connect 中创建项目（entry)</li>
@@ -110,7 +111,18 @@
     <summary type="html">
     
       &lt;p&gt;术语 &lt;code&gt;in-app purchase&lt;/code&gt; 或 &lt;code&gt;IAP&lt;/code&gt; &lt;/p&gt;
-&lt;h2 id=&quot;大致流程&quot;&gt;&lt;a href=&quot;#大致流程&quot; class=&quot;headerlink&quot; title=&quot;大致流程&quot;&gt;&lt;/a&gt;大致流程&lt;/h2&gt;&lt;p&gt;选自 
+&lt;h2 id=&quot;大致流程&quot;&gt;&lt;a href=&quot;#大致流程&quot; class=&quot;headerlink&quot; title=&quot;大致流程&quot;&gt;&lt;/a&gt;大致流程&lt;/h2&gt;&lt;p&gt;选自 &lt;a href=&quot;http://www.jianshu.com/p/298a01961ba7&quot;&gt;iOS快速上手应用内购(IAP)附Demo - 简书&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;应用发送请求到服务器，获取所有的可用Products Id集合,(当然你也可以把Products Id硬编码到程序中,这样会导致不能动态配置商品).&lt;/li&gt;
+&lt;li&gt;根据服务器返回的 Products Id 以及信息设置购买界面UI.(这里跟图一有些不同)&lt;/li&gt;
+&lt;li&gt;用户点击购买商品.&lt;/li&gt;
+&lt;li&gt;客户端根据相应的 Product Id 向 App Store 请求产品信息，并发起购买 payment.(使用StoreKit)&lt;/li&gt;
+&lt;li&gt;App Store处理该 payment，并返回完成的 transaction&lt;/li&gt;
+&lt;li&gt;客户端从 transaction 中获取 receipt 凭证数据，并将其发送给服务器，等待返回.&lt;/li&gt;
+&lt;li&gt;服务器验证 receipt 凭证数据是否使用过，保存然后发给App Store验证是否合法&lt;/li&gt;
+&lt;li&gt;服务器得到 App Store 验证结果，返回给客户端相应购买成功或失败信息&lt;/li&gt;
+&lt;li&gt;客户端提示用户购买结果以及处理相应UI.&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
